@@ -319,23 +319,20 @@ height: 16px;
         height: 192px;
         left: 0;
         right: 0;
-        overflow-y: scroll; /* has to be scroll, not auto */
+        overflow: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
     }
     #sttropez-window{
         height: 288px;
-        overflow: hidden;
     }
 
     #drivein-window {
         height: 240px;
         width: 480px;
-        overflow: hidden;
         position: relative;
     }
 
     #drivein-window iframe {
-        position: absolute;
         top: 22px;
         left:-120px;
     }
@@ -347,7 +344,7 @@ height: 16px;
         right: 0;
         height: 400px;
         width: 460px;
-        overflow-y: scroll; /* has to be scroll, not auto */
+        overflow: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
         margin: 0;
     }
