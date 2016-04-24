@@ -192,6 +192,7 @@
       $("#journey-window iframe").css('visibility', 'visible');
     });
     $("#sttropez").bind('vclick click', function (e){
+      e.preventDefault();
       $("#sttropez-window").css('visibility', 'visible');
       $("#sttropez-window iframe").css('visibility', 'visible');
     });
@@ -203,6 +204,7 @@
       $(this).parent().parent().parent().css('height', '100%');
     });
     $(".close").bind('vclick click', function (e){
+      e.preventDefault();
       $(this).parent().parent().parent().css('visibility', 'hidden');
       $(this).parent().parent().parent().find('iframe').css('visibility', 'hidden');
     });
