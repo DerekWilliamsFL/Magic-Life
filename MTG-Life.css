@@ -303,7 +303,7 @@ height: 16px;
     width: 480px;
     overflow: auto;
     margin: 0;
-}
+    }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
