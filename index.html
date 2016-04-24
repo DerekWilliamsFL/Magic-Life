@@ -20,7 +20,7 @@
     </a>
   </li>
   <li id="about">
-    <a href="http://derekwilliamsfl.github.io/imdb-api/" target="about">
+    <a target="about">
       <div class="link-icon"><img src="Images/shell32_24.ico"/></div>
         <div class="link-text">
       About Me
@@ -103,7 +103,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe name="about" ></iframe>
+  <iframe src="http://derekwilliamsfl.github.io/imdb-api/" name="about" ></iframe>
 </div>
 <div id="sttropez-window" class="application-frame">
   <header class="application-controlbar">
@@ -118,20 +118,6 @@
     </div>
   </header>
   <iframe name="sttropez" ></iframe>
-</div>
-<div id="flow-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/logo.png" width="16" height="16" />
-      <span>Flow</span>
-    </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="maximize"></button>
-      <button class="close"></button>
-    </div>
-  </header>
-  <iframe name="flow" ></iframe>
 </div>
 <div style="text-align: center;" id="drivein-window" class="application-frame">
   <header class="application-controlbar">
@@ -218,12 +204,12 @@
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
     $("#about").bind('vclick click', function (e){
-      e.preventDefault();
+
       $("#about-window").css('visibility', 'visible');
     });
     var menuShown = false;
     var maximized = false;
-    $(".start-button").click(function (){
+    $(".start-button").bind('vclick click', function (e){
       if (menuShown === false) {
         menuShown = true;
         $(".start-menu").stop().animate({height: "+=273px"}, 200);
@@ -238,7 +224,7 @@
         $(".start-menu").stop().animate({height: "-=273px"}, 200);
       }
     });
-    $(".maximize").click(function (){
+    $(".maximize").bind('vclick click', function (e){
       if (maximized === false) {
         maximized = true;
         $(this).parent().parent().parent().addClass('maximized');
