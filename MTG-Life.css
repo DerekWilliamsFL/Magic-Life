@@ -319,6 +319,7 @@ height: 16px;
         height: 192px;
         left: 0;
         right: 0;
+        overflow:auto;
     }
     #sttropez-window{
         height: 288px;
