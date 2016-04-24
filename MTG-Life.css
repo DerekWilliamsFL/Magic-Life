@@ -298,3 +298,35 @@ height: 16px;
 
 
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+    .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
+        width: 100vw;
+        height: 40vh;
+        left: 0;
+        right: 0;
+
+    }
+    #sttropez-window{
+        height: 60vh;
+    }
+
+    #drivein-window {
+        height: 50vh;
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #drivein-window iframe {
+        position: absolute;
+        top: 22px;
+        left:-120px;
+    }
+    
+}
