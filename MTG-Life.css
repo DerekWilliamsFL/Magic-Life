@@ -270,8 +270,8 @@ height: 16px;
 @media only screen and (max-width: 480px) {
 
     body {
-        height: 100%;
         overflow: hidden;
+        width: 480px;
     }
     .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
         width: 100%;
@@ -303,7 +303,7 @@ height: 16px;
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
     body {
-        height: 100%;
+        width: 480px;
         overflow: hidden;
     }
     .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
