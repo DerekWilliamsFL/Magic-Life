@@ -181,27 +181,30 @@
     });
     $("#resume").bind('vclick click', function (e){
       $("#resume-window").css('visibility', 'visible');
+      $("#resume-window iframe").css('visibility', 'visible');
     })
     $("#drivein").bind('vclick click', function (e){
       $("#drivein-window").css('visibility', 'visible');
+      $("#drivein-window iframe").css('visibility', 'visible');
     });
     $("#journey").bind('vclick click', function (e){
       $("#journey-window").css('visibility', 'visible');
+      $("#journey-window iframe").css('visibility', 'visible');
     });
     $("#sttropez").bind('vclick click', function (e){
       $("#sttropez-window").css('visibility', 'visible');
+      $("#sttropez-window iframe").css('visibility', 'visible');
     });
     $("#imdb").bind('vclick click', function (e){
       $("#imdb-window").css('visibility', 'visible');
-    });
-    $("#github").bind('vclick click', function (e){
-      $("#github-window").css('visibility', 'visible');
+      $("#imdb-window iframe").css('visibility', 'visible');
     });
     $(".maximize").bind('vclick click', function (e){
       $(this).parent().parent().parent().css('height', '100%');
     });
     $(".close").bind('vclick click', function (e){
       $(this).parent().parent().parent().css('visibility', 'hidden');
+      $(this).parent().parent().parent().find('iframe').css('visibility', 'hidden');
     });
     $("#about").bind('vclick click', function (e){
       $("#about-window").css('visibility', 'visible');
