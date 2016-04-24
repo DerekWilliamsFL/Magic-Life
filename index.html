@@ -185,6 +185,7 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="touch-punch.js"></script>
 <script>
   $( document ).ready(function() {
@@ -192,37 +193,32 @@
       iframeFix: true,
       cursor: "pointer",
     });
-    $("#resume").click(function (){
+    $("#resume").bind('vclick click', function (e){
       $("#resume-window").css('visibility', 'visible');
-      return false;
-    });
-    $("#drivein").click(function (){
+    })
+    $("#drivein").bind('vclick click', function (e){
       $("#drivein-window").css('visibility', 'visible');
-      return false;
     });
-    $("#journey").click(function (){
+    $("#journey").bind('vclick click', function (e){
       $("#journey-window").css('visibility', 'visible');
-      return false;
     });
-    $("#sttropez").click(function (){
+    $("#sttropez").bind('vclick click', function (e){
       $("#sttropez-window").css('visibility', 'visible');
-      return false;
     });
-    $("#imdb").click(function (){
+    $("#imdb").bind('vclick click', function (e){
       $("#imdb-window").css('visibility', 'visible');
-      return false;
     });
-    $("#github").click(function (){
+    $("#github").bind('vclick click', function (e){
       $("#github-window").css('visibility', 'visible');
-      return false;
     });
-    $(".maximize").click(function(){
+    $(".maximize").bind('vclick click', function (e){
       $(this).parent().parent().parent().css('height', '100%');
     });
-    $(".close").click(function (){
+    $(".close").bind('vclick click', function (e){
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
-    $("#about").click(function (){
+    $("#about").bind('vclick click', function (e){
+      e.preventDefault();
       $("#about-window").css('visibility', 'visible');
     });
     var menuShown = false;
