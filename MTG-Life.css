@@ -116,6 +116,7 @@ height: 16px;
     width: 60px;
     float: left;
     z-index: 2;
+    cursor: pointer;
 }
 
 .link-icon {
@@ -123,6 +124,7 @@ height: 16px;
     text-align: center;
     margin: 3px 3px 0;
     vertical-align: top;
+    cursor: pointer;
 }
 
 .link-text {
