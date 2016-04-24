@@ -337,12 +337,12 @@ height: 16px;
         left:-120px;
     }
 
-    .application-frame iframe {
+   iframe {
     height: 400px;
     width: 480px;
     overflow: auto;
     margin: 0;
-    display: none;
+    visibility: hidden;
 }
 
 }
