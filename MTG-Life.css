@@ -319,10 +319,12 @@ height: 16px;
         height: 192px;
         left: 0;
         right: 0;
-        overflow:auto;
+        overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
     }
     #sttropez-window{
         height: 288px;
+        overflow: hidden;
     }
 
     #drivein-window {
@@ -345,7 +347,8 @@ height: 16px;
         right: 0;
         height: 400px;
         width: 460px;
-        overflow: auto;
+        overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
         margin: 0;
     }
 
