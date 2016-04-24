@@ -276,7 +276,8 @@ height: 16px;
         width: 480px;
     }
     .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
-        width: 480px;
+        position: absolute;
+        width: 460px;
         height: 192px;
         left: 0;
         right: 0;
@@ -300,7 +301,7 @@ height: 16px;
     }
     iframe {
     height: 400px;
-    width: 480px;
+    width: 460px;
     overflow: auto;
     margin: 0;
     display: none;
@@ -311,14 +312,13 @@ height: 16px;
 
     body {
         width: 480px;
-        /*overflow: hidden;*/
     }
     .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
-        width: 480px;
+        position: absolute;
+        width: 460px;
         height: 192px;
         left: 0;
         right: 0;
-
     }
     #sttropez-window{
         height: 288px;
@@ -337,12 +337,11 @@ height: 16px;
         left:-120px;
     }
 
-   iframe {
-    height: 400px;
-    width: 480px;
-    overflow: auto;
-    margin: 0;
-    visibility: visible;
-}
+       iframe {
+        height: 400px;
+        width: 460px;
+        overflow: auto;
+        margin: 0;
+    }
 
 }
