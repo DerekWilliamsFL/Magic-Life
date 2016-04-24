@@ -131,7 +131,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/Drive-In-Theater/" name="drivein" width="480"></iframe>
+  <iframe id="driveinframe" src="http://derekwilliamsfl.github.io/Drive-In-Theater/" name="drivein"></iframe>
 </div>
 <div id="imdb-window" class="application-frame">
   <header class="application-controlbar">
@@ -159,7 +159,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/Canvas/"name="journey" ></iframe>
+  <iframe src="http://derekwilliamsfl.github.io/Canvas/" name="journey" ></iframe>
 </div>
 <div class="start-menu"></div>
 <div class="bottom-dock">
@@ -184,7 +184,7 @@
       $("#resume-window").css('visibility', 'visible');
     })
     $("#drivein").bind('vclick click', function (e){
-      $("#drivein-window iframe").css('visibility', 'visible');
+      $("#driveinframe").css('visibility', 'visible');
       $("#drivein-window").css('visibility', 'visible');
     });
     $("#journey").bind('vclick click', function (e){
