@@ -20,7 +20,7 @@
     </a>
   </li>
   <li id="about">
-    <a target="about">
+    <a href="http://derekwilliamsfl.github.io/imdb-api/" target="about">
       <div class="link-icon"><img src="Images/shell32_24.ico"/></div>
         <div class="link-text">
       About Me
@@ -37,7 +37,7 @@
   </li>
   <!-- separate here -->
   <li id="journey">
-    <a  target="journey">
+    <a href="http://derekwilliamsfl.github.io/Canvas/" target="journey">
       <div class="link-icon"><img src="Images/character.png"/></div>
         <div class="link-text">
       Journey
@@ -45,7 +45,7 @@
     </a>
   </li>
   <li id="imdb">
-    <a target="imdb">
+    <a href="http://derekwilliamsfl.github.io/imdb-api/" target="imdb">
       <div class="link-icon"><img src="Images/imdb.png"/></div>
         <div class="link-text">
       iMDB Search
@@ -53,7 +53,7 @@
     </a>
   </li>
   <li id="sttropez">
-    <a target="sttropez">
+    <a href="http://derekwilliamsfl.github.io/St.Tropez/" target="sttropez">
       <div class="link-icon"><img src="Images/purse.png"/></div>
         <div class="link-text">
       St.Tropez
@@ -68,8 +68,8 @@
         </div>
     </a>
   </li>-->
-  <li id="drivein">
-    <a  target="drivein">
+  <li id="drivein" onclick=“”>
+    <a href="http://derekwilliamsfl.github.io/Drive-In-Theater/" target="drivein">
       <div class="link-icon"><img src="Images/dit.png" width="32" height="32"/></div>
         <div class="link-text">
       Drive In
@@ -103,7 +103,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/imdb-api/" name="about" ></iframe>
+  <iframe name="about" ></iframe>
 </div>
 <div id="sttropez-window" class="application-frame">
   <header class="application-controlbar">
@@ -117,7 +117,21 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/St.Tropez/" name="sttropez" ></iframe>
+  <iframe name="sttropez" ></iframe>
+</div>
+<div id="flow-window" class="application-frame">
+  <header class="application-controlbar">
+    <div class="application-title">
+      <img src="Images/logo.png" width="16" height="16" />
+      <span>Flow</span>
+    </div>
+    <div class="application-button-group">
+      <button class="minimize"></button>
+      <button class="maximize"></button>
+      <button class="close"></button>
+    </div>
+  </header>
+  <iframe name="flow" ></iframe>
 </div>
 <div style="text-align: center;" id="drivein-window" class="application-frame">
   <header class="application-controlbar">
@@ -131,7 +145,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/Drive-In-Theater/" name="drivein" width="480"></iframe>
+  <iframe name="drivein" width="480"></iframe>
 </div>
 <div id="imdb-window" class="application-frame">
   <header class="application-controlbar">
@@ -145,7 +159,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/imdb-api/" name="imdb" ></iframe>
+  <iframe name="imdb" ></iframe>
 </div>
 <div id="journey-window" class="application-frame">
   <header class="application-controlbar">
@@ -159,7 +173,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/Canvas/"name="journey" ></iframe>
+  <iframe name="journey" ></iframe>
 </div>
 <div class="start-menu"></div>
 <div class="bottom-dock">
@@ -181,7 +195,6 @@
     });
     $("#resume").bind('vclick click', function (e){
       $("#resume-window").css('visibility', 'visible');
-      $("#resume-window iframe").css('visibility', 'visible');
     })
     $("#drivein").bind('vclick click', function (e){
       $("#drivein-window").css('visibility', 'visible');
@@ -191,7 +204,6 @@
     });
     $("#sttropez").bind('vclick click', function (e){
       $("#sttropez-window").css('visibility', 'visible');
-      $("#sttropez-window iframe").css('visibility', 'visible');
     });
     $("#imdb").bind('vclick click', function (e){
       $("#imdb-window").css('visibility', 'visible');
