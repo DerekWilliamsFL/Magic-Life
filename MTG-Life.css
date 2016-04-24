@@ -275,48 +275,13 @@ height: 16px;
         overflow: hidden;
         width: 480px;
     }
-    .application-frame{
+    .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
         width: 480px;
         height: 192px;
         left: 0;
         right: 0;
 
     }
-    /*#sttropez-window{
-        height: 288px;
-    }
-
-    #drivein-window {
-        height: 240px;
-        width: 480px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    #drivein-window iframe {
-        position: absolute;
-        top: 22px;
-        left:-120px;
-    }*/
-}
-
-
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
-    body {
-        width: 480px;
-        overflow: hidden;
-    }
-    .application-frame{
-        width: 480px;
-        height: 192px;
-        left: 0;
-        right: 0;
-
-    }
-    /*
     #sttropez-window{
         height: 288px;
     }
@@ -332,6 +297,50 @@ height: 16px;
         position: absolute;
         top: 22px;
         left:-120px;
-    }*/
+    }
+
+    .application-frame iframe {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 95%;
+    width: 100%;
+    overflow: auto;
+    margin: 0;
+}
+
+
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+    body {
+        width: 480px;
+        overflow: hidden;
+    }
+    .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
+        width: 480px;
+        height: 192px;
+        left: 0;
+        right: 0;
+
+    }
+    #sttropez-window{
+        height: 288px;
+    }
+
+    #drivein-window {
+        height: 240px;
+        width: 480px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #drivein-window iframe {
+        position: absolute;
+        top: 22px;
+        left:-120px;
+    }
 
 }
