@@ -272,7 +272,7 @@ height: 16px;
 @media only screen and (max-width: 480px) {
 
     body {
-        overflow: hidden;
+        /*overflow: hidden;*/
         width: 480px;
     }
     .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
@@ -298,11 +298,12 @@ height: 16px;
         top: 22px;
         left:-120px;
     }
-    .application-frame iframe {
+    iframe {
     height: 400px;
     width: 480px;
     overflow: auto;
     margin: 0;
+    display: none;
     }
 }
 
@@ -310,7 +311,7 @@ height: 16px;
 
     body {
         width: 480px;
-        overflow: hidden;
+        /*overflow: hidden;*/
     }
     .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
         width: 480px;
@@ -341,6 +342,7 @@ height: 16px;
     width: 480px;
     overflow: auto;
     margin: 0;
+    display: none;
 }
 
 }
