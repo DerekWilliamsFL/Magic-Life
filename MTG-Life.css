@@ -324,6 +324,10 @@ height: 16px;
         overflow: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
     }
+
+    #blue {
+        visibility: hidden;
+    }
     #sttropez-window{
         height: 288px;
     }
