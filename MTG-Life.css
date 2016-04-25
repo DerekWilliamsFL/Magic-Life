@@ -316,12 +316,13 @@ height: 16px;
     body {
         width: 480px;
     }
-    .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window, #journey-window {
+    .application-frame{
         width: 460px;
         height: 192px;
         left: 0;
         right: 0;
-        
+        -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
     }
 
     #blue {
@@ -343,8 +344,7 @@ height: 16px;
     }
 
     #sttropez-window iframe {
-        overflow: scroll; /* has to be scroll, not auto */
-  -webkit-overflow-scrolling: touch;
+        
     }
 
     .application-frame iframe {
