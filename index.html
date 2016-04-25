@@ -52,7 +52,7 @@
     </a>
   </li>
   <li id="sttropez">
-    <a href="http://derekwilliamsfl.github.io/St.Tropez/" target="sttropez">
+    <a  target="sttropez">
       <div class="link-icon"><img src="Images/purse.png"/></div>
         <div class="link-text">
       St.Tropez
@@ -108,7 +108,7 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe name="sttropez"></iframe>
+  <iframe src="http://derekwilliamsfl.github.io/St.Tropez/" name="sttropez"></iframe>
 </div>
 <div style="text-align: center;" id="drivein-window" class="application-frame">
   <header class="application-controlbar">
@@ -183,7 +183,6 @@
       $("#journey-window iframe").css('visibility', 'visible');
     });
     $("#sttropez").bind('vclick click', function (e){
-      e.preventDefault();
       $("#sttropez-window").css('visibility', 'visible');
       $("#sttropez-window iframe").css('visibility', 'visible');
     });
