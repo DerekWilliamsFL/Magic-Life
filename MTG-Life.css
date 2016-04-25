@@ -271,7 +271,7 @@ height: 16px;
 
 @media only screen and (max-width: 480px) {
 
-     body {
+        body {
         width: 480px;
     }
     .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window, #journey-window {
@@ -279,6 +279,8 @@ height: 16px;
         height: 192px;
         left: 0;
         right: 0;
+        overflow: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
     }
     #sttropez-window{
         height: 288px;
@@ -287,12 +289,10 @@ height: 16px;
     #drivein-window {
         height: 240px;
         width: 480px;
-        overflow: hidden;
         position: relative;
     }
 
     #drivein-window iframe {
-        position: absolute;
         top: 22px;
         left:-120px;
     }
@@ -304,9 +304,11 @@ height: 16px;
         right: 0;
         height: 400px;
         width: 460px;
-        overflow: auto;
+        overflow: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
         margin: 0;
     }
+
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
