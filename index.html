@@ -8,6 +8,7 @@
   <link rel="Stylesheet" href="css-reset.css">
   <link rel="Stylesheet" href="MTG-Life.css">
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script type="text/javascript" src="/jsv/jsvideo64.js"></script>
 </head>
 <body>
 <ul class="desktop-icons">
@@ -196,6 +197,9 @@
     $(".close").bind('vclick click', function (e){
       $(this).parent().parent().parent().find('iframe').css('visibility', 'hidden');
       $(this).parent().parent().parent().css('visibility', 'hidden');
+    });
+
+    $("#drivein-window .close").bind('vclick click', function (e){
       
     });
     $("#about").bind('vclick click', function (e){
