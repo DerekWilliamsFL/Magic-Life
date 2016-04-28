@@ -272,7 +272,7 @@ height: 16px;
 @media only screen and (max-width: 480px) {
 
    body {
-        width: 100%;
+        width: 480px;
         height: 100vh;
     }
 
