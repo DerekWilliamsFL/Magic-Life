@@ -282,9 +282,8 @@ height: 16px;
     }
 
     #sttropez-window, #imdb-window, #journey-window, #resume-window, #about-window{
-        height: 300px;
+        height: 65%;
         width: 460px;
-        position: relative;
     }
 
     #drivein-window {
@@ -313,6 +312,17 @@ height: 16px;
     -webkit-overflow-scrolling: touch;
       overflow: auto;
     }
+
+    .application-controlbar {
+    height: 28px;
+
+}
+
+.close, .minimize, .maximize {
+    height: 18px;
+    width: 18px;
+    }   
+
     .application-frame iframe {
         top: 0;
         bottom: 0;
