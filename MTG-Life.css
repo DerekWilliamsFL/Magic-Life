@@ -313,16 +313,6 @@ height: 16px;
       overflow: auto;
     }
 
-    .application-controlbar {
-    height: 28px;
-
-}
-
-.close, .minimize, .maximize {
-    height: 18px;
-    width: 18px;
-    }   
-
     .application-frame iframe {
         top: 0;
         bottom: 0;
