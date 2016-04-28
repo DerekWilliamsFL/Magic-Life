@@ -6,9 +6,8 @@
   <link rel="shortcut icon" href="computer.gif">
   <title>Derek Williams</title>
   <link rel="Stylesheet" href="css-reset.css">
+
   <link rel="Stylesheet" href="MTG-Life.css">
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-<script type="text/javascript" src="/jsv/jsvideo64.js"></script>
 </head>
 <body>
 <ul class="desktop-icons">
@@ -68,6 +67,14 @@
         </div>
     </a>
   </li>
+   <li id="mailto">
+    <a href="mailto:derekwilliamsfl@gmail.com">
+      <div class="link-icon"><img src="Images/dit.png" width="32" height="32"/></div>
+        <div class="link-text">
+      E-Mail
+        </div>
+    </a>
+  </li>
 </ul>
 <div id="resume-window" class="application-frame">
   <header class="application-controlbar">
@@ -81,7 +88,9 @@
       <button class="close"></button>
     </div>
   </header>
+  <div class="iframe">
   <iframe name="resume" src="Images/DWilliams-Resume.pdf"></iframe>
+</div>
 </div>
 <div id="about-window" class="application-frame">
   <header class="application-controlbar">
@@ -95,7 +104,9 @@
       <button class="close"></button>
     </div>
   </header>
+  <div class="iframe">
   <iframe name="about" ></iframe>
+</div>
 </div>
 <div id="sttropez-window" class="application-frame">
   <header class="application-controlbar">
@@ -109,7 +120,9 @@
       <button class="close"></button>
     </div>
   </header>
-  <iframe src="http://derekwilliamsfl.github.io/St.Tropez/" name="sttropez"></iframe>
+  <div class="iframe">
+  <iframe name="sttropez"></iframe>
+</div>
 </div>
 <div style="text-align: center;" id="drivein-window" class="application-frame">
   <header class="application-controlbar">
@@ -123,7 +136,9 @@
       <button class="close"></button>
     </div>
   </header>
+  <div class="iframe">
   <iframe name="drivein"></iframe>
+</div>
 </div>
 <div id="imdb-window" class="application-frame">
   <header class="application-controlbar">
@@ -137,7 +152,9 @@
       <button class="close"></button>
     </div>
   </header>
+  <div class="iframe">
   <iframe  name="imdb" ></iframe>
+</div>
 </div>
 <div id="journey-window" class="application-frame">
   <header class="application-controlbar">
@@ -151,7 +168,9 @@
       <button class="close"></button>
     </div>
   </header>
+  <div class="iframe">
   <iframe name="journey" ></iframe>
+</div>
 </div>
 <div class="start-menu"></div>
 <div class="bottom-dock">
@@ -164,45 +183,108 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script src="touch-punch.js"></script>
 <script>
-  $( document ).ready(function() {
+function touchHandler(event) {
+    var self = this;
+    var touches = event.changedTouches,
+        first = touches[0],
+        type = "";
+    switch (event.type) {
+    case "touchstart":
+        type = "mousedown";
+        window.startY = event.pageY;
+        break;
+    case "touchmove":
+        type = "mousemove";
+        break;
+    case "touchend":
+        type = "mouseup";
+        break;
+    default:
+        return;
+    }
+    var simulatedEvent = document.createEvent("MouseEvent");
+    simulatedEvent.initMouseEvent(type, true, true, window, 1, first.screenX, first.screenY, first.clientX, first.clientY, false, false, false, false, 0 /*left*/ , null);
+    first.target.dispatchEvent(simulatedEvent);
+    var scrollables = [];
+    var clickedInScrollArea = false;
+    // check if any of the parents has is-scollable class
+    var parentEls = jQuery(event.target).parents().map(function() {
+        try {
+            if (jQuery(this).hasClass('is-scrollable')) {
+                clickedInScrollArea = true;
+                // get vertical direction of touch event
+                var direction = (window.startY < first.clientY) ? 'down' : 'up';
+                // calculate stuff... :o)
+                if (((jQuery(this).scrollTop() <= 0) && (direction === 'down')) || ((jQuery(this).height() <= jQuery(this).scrollTop()) && (direction === 'up')) ){
+                } else {
+                    scrollables.push(this);
+                }
+            }
+        } catch (e) {}
+    });
+    // if not, prevent default to prevent bouncing
+    if ((scrollables.length === 0) && (type === 'mousemove')) {
+        event.preventDefault();
+    }
+}
+function initTouchHandler() {
+    document.addEventListener("touchstart", touchHandler, true);
+    document.addEventListener("touchmove", touchHandler, true);
+    document.addEventListener("touchend", touchHandler, true);
+    document.addEventListener("touchcancel", touchHandler, true);
+}
+  $(document).ready(function() {
+    $.mobile.loading().hide();
+    function updateTime() {
+      var dNow = new Date();
+      var localdate =  dNow.getHours() + ':' + dNow.getMinutes();
+      $('#time').text(localdate);
+    }
+    updateTime();
+    setInterval(updateTime, 5000);
+    
+    initTouchHandler();
     $(".application-frame").draggable({
       iframeFix: true,
       cursor: "pointer",
     });
     $("#resume").bind('vclick click', function (e){
       $("#resume-window").css('visibility', 'visible');
-      $("#resume-window iframe").css('visibility', 'visible');
+      $("#resume-window .iframe img").css('display', 'block');
     })
     $("#drivein").bind('vclick click', function (e){
       $("#drivein-window").css('visibility', 'visible');
-      $("#drivein-window iframe").css('visibility', 'visible');
+      $("#drivein-window iframe").css('display', 'block');
     });
     $("#journey").bind('vclick click', function (e){
       $("#journey-window").css('visibility', 'visible');
-      $("#journey-window iframe").css('visibility', 'visible');
+      $("#journey-window iframe").css('display', 'block');
     });
     $("#sttropez").bind('vclick click', function (e){
       $("#sttropez-window").css('visibility', 'visible');
-      $("#blue").css('visibility', 'visible');
+      $("#sttropez-window iframe").css('display', 'block');
     });
     $("#imdb").bind('vclick click', function (e){
       $("#imdb-window").css('visibility', 'visible');
-      $("#imdb-window iframe").css('visibility', 'visible');
+      $("#imdb-window iframe").css('display', 'block');
     });
     $(".maximize").bind('vclick click', function (e){
       $(this).parent().parent().parent().css('height', '100%');
     });
     $(".close").bind('vclick click', function (e){
-      $(this).parent().parent().parent().find('iframe').css('visibility', 'hidden');
+      $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
+      
     });
     $("#drivein-window .close").bind('vclick click', function (e){
-      
+      $("#drivein-window iframe").contents().find('#fillwidth').pause();
+      $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
+      $(this).parent().parent().parent().css('visibility', 'hidden');
     });
     $("#about").bind('vclick click', function (e){
       $("#about-window").css('visibility', 'visible');
+      $("#about-window iframe").css('display', 'block');
     });
     var menuShown = false;
     var maximized = false;
