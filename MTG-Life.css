@@ -318,14 +318,8 @@ height: 16px;
     }
 
     .application-frame iframe {
-         top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 95%;
-    width: 100%;
-    overflow: auto;
-    margin: 0;
+        height: 100%;
+        width: 100%;
     }
 
 }
@@ -343,22 +337,27 @@ height: 16px;
           top: 0;
           -webkit-overflow-scrolling: touch;
           overflow-y: scroll;
-        width: 90%;
-        height: 192px;
+
     }
 
     .application-frame iframe {
-        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 95%;
         width: 100%;
+        overflow: auto;
+        margin: 0;
     }
-
     #sttropez-window{
-        height: 65%;
+        height: 288px;
         width: 100%;
     }
 
     #drivein-window {
         height: 240px;
+        width: 480px;
         position: relative;
     }
 
@@ -366,4 +365,11 @@ height: 16px;
         top: 22px;
         left:-120px;
     }
+
+    #sttropez-window iframe {
+        
+    }
+
+    
+
 }
