@@ -104,7 +104,7 @@
     </div>
   </header>
   <div class="iframe">
-  <iframe src="https://derekwilliamsfl.github.io" name="about" ></iframe>
+  <iframe name="about" ></iframe>
 </div>
 </div>
 <div id="sttropez-window" class="application-frame">
@@ -274,10 +274,9 @@ function initTouchHandler() {
     $(".close").bind('vclick click', function (e){
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
-      
     });
     $("#drivein-window .close").bind('vclick click', function (e){
-      $("#drivein-window iframe").contents().find('#fillwidth').pause();
+      $("#drivein-window iframe").contents().find('#fillwidth').get(0).pause();
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
