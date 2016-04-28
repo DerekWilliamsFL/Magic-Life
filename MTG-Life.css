@@ -278,7 +278,7 @@ height: 16px;
 
     .maximized {
         height: 100%;
-        width: 100%;
+        width: 480px;
     }
 
     #sttropez-window, #imdb-window, #journey-window, #resume-window, #about-window{
