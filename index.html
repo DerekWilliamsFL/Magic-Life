@@ -266,9 +266,11 @@ function initTouchHandler() {
       
     });
     $("#drivein-window .close").bind('vclick click', function (e){
-      $("#drivein-window iframe").contents().find('#fillwidth').get(0).pause();
+      $("drivein-window iframe").contents().find('#fillwidth').get(0).pause();
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
+      
+      
     });
     $("#about").bind('vclick click', function (e){
       $("#about-window").css('visibility', 'visible');
