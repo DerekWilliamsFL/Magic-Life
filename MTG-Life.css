@@ -309,7 +309,7 @@ height: 16px;
       bottom: 0; 
       left: 0;
     -webkit-overflow-scrolling: touch;
-      overflow-y: auto;
+      overflow-y: scroll;
     }
 
     .application-frame iframe {
