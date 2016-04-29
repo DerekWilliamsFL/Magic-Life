@@ -271,9 +271,6 @@ height: 16px;
 
 @media only screen and (max-width: 480px) {
 
-   body {
-        width: 100vw;
-    }
 
     .maximized {
         height: 100%;
