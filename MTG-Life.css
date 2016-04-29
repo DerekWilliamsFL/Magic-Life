@@ -277,6 +277,7 @@ height: 16px;
       -ms-transform: scale(0.48); /* IE9 */
        -o-transform: scale(0.48); /* Opera 10.5+ */
           transform: scale(0.48);
+          transform-origin: top left;
     }
 
     .maximized {
