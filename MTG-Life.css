@@ -274,11 +274,11 @@ height: 16px;
 @media only screen and (max-width: 480px) {
 
    body {
-        -webkit-transform: scale(0.78); /* Saf3.1+, Chrome */
-     -moz-transform: scale(0.78); /* FF3.5+ */
-      -ms-transform: scale(0.78); /* IE9 */
-       -o-transform: scale(0.78); /* Opera 10.5+ */
-          transform: scale(0.78);
+        -webkit-transform: scale(0.68); /* Saf3.1+, Chrome */
+     -moz-transform: scale(0.68); /* FF3.5+ */
+      -ms-transform: scale(0.68); /* IE9 */
+       -o-transform: scale(0.68); /* Opera 10.5+ */
+          transform: scale(0.68);
           transform-origin: top left;
     }
 
