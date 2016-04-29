@@ -276,7 +276,7 @@ function initTouchHandler() {
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
     $("#drivein-window .close").bind('vclick click', function (e){
-      console.log($("#drivein-window iframe").contents().contentWindow.targetFunction());
+      console.log($("#drivein-window iframe").contentWindow.iPhoneStop());
       $("#drivein-window iframe").contents().find('#fillwidth').get(0).pause();
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
