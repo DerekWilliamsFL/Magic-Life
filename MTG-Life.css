@@ -9,7 +9,7 @@ body {
 .bottom-dock {
     height: 25px;
     background-color: #C0C0C0;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100vh;
     padding: 1px;
