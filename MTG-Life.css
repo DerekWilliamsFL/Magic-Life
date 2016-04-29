@@ -2,6 +2,7 @@ body {
     background: rgb(0, 128, 128);
     font-family: 'Arial', sans-serif;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .bottom-dock {
@@ -9,7 +10,7 @@ body {
     background-color: #C0C0C0;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 100vh;
     padding: 1px;
     border-top: 1px solid silver;
     box-shadow: 0 1px #fff inset;
@@ -272,11 +273,11 @@ height: 16px;
 @media only screen and (max-width: 480px) {
 
    body {
-        -webkit-transform: scale(0.48); /* Saf3.1+, Chrome */
-     -moz-transform: scale(0.48); /* FF3.5+ */
-      -ms-transform: scale(0.48); /* IE9 */
-       -o-transform: scale(0.48); /* Opera 10.5+ */
-          transform: scale(0.48);
+        -webkit-transform: scale(0.78); /* Saf3.1+, Chrome */
+     -moz-transform: scale(0.78); /* FF3.5+ */
+      -ms-transform: scale(0.78); /* IE9 */
+       -o-transform: scale(0.78); /* Opera 10.5+ */
+          transform: scale(0.78);
           transform-origin: top left;
     }
 
