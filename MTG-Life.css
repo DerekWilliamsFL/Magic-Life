@@ -271,6 +271,13 @@ height: 16px;
 
 @media only screen and (max-width: 480px) {
 
+   body {
+        -webkit-transform: scale(0.48); /* Saf3.1+, Chrome */
+     -moz-transform: scale(0.48); /* FF3.5+ */
+      -ms-transform: scale(0.48); /* IE9 */
+       -o-transform: scale(0.48); /* Opera 10.5+ */
+          transform: scale(0.48);
+    }
 
     .maximized {
         height: 100%;
