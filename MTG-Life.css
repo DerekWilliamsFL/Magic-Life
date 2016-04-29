@@ -2,8 +2,6 @@ body {
     background: rgb(0, 128, 128);
     font-family: 'Arial', sans-serif;
     overflow: hidden;
-    box-sizing: border-box;
-    position: relative;
 }
 
 .bottom-dock {
@@ -11,7 +9,7 @@ body {
     background-color: #C0C0C0;
     position: fixed;
     bottom: 0;
-    width: 100vh;
+    width: 100%;
     padding: 1px;
     border-top: 1px solid silver;
     box-shadow: 0 1px #fff inset;
@@ -274,27 +272,22 @@ height: 16px;
 @media only screen and (max-width: 480px) {
 
    body {
-        -webkit-transform: scale(0.58); /* Saf3.1+, Chrome */
-     -moz-transform: scale(0.58); /* FF3.5+ */
-      -ms-transform: scale(0.58); /* IE9 */
-       -o-transform: scale(0.58); /* Opera 10.5+ */
-          transform: scale(0.58);
-          transform-origin: top left;
+        width: 480px;
     }
 
     .maximized {
         height: 100%;
-        width: 100%;
+        width: 480px;
     }
 
     #sttropez-window, #imdb-window, #journey-window, #resume-window, #about-window{
         height: 65%;
-        width: 90%;
+        width: 450px;
     }
 
     #drivein-window {
         height: 300px;
-        width: 85%;
+        width: 430px;
         position: relative;
     }
 
@@ -325,7 +318,7 @@ height: 16px;
         left: 0;
         right: 0;
         height: 300px;
-        width: 95%;
+        width: 460px;
         margin: 0;
         display: none;    
     }
@@ -344,7 +337,7 @@ height: 16px;
 
      #resume-window .iframe img{
         height: 100%;
-        width: 100%;
+        width: 480px;
         transform: scale(1.15, 1.15);
         -ms-transform: scale(1.15, 1.15);
         -webkit-transform: scale(1.15, 1.15);
