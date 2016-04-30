@@ -177,6 +177,10 @@
     <img class="win95start" src="Images/win95start.gif">
     <span>Start</span>
   </button>
+  <!--<button class="docked">
+    <img src="Images/dit.png">
+    <span>Drive-In Theater</span>
+  </button>-->
   <div id="inset-notif" class="notif"><span id="time"><img src="Images/sound.gif"></img>12:34</span></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -242,52 +246,71 @@ function initTouchHandler() {
     }
     updateTime();
     setInterval(updateTime, 5000);
-    
+    function appendToDock(selector) {
+      var imgsrc = $(selector).find('img').attr('src');
+      $('.bottom-dock').append('<button class="docked"><img src=' + imgsrc + '></button>' );
+    }
     initTouchHandler();
     $(".application-frame").draggable({
       iframeFix: true,
       cursor: "pointer",
     });
-    $("#resume").bind('vclick click', function (e){
+    $(".docked").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
       $("#resume-window .iframe img").css('display', 'block');
-    })
-    $("#drivein").bind('vclick click', function (e){
+      appendToDock('#resume');
+    });
+    $("#resume").bind('vclick', function (e){
+      $("#resume-window").css('visibility', 'visible');
+      $("#resume-window .iframe img").css('display', 'block');
+      appendToDock('#resume');
+    });
+    $("#drivein").bind('vclick', function (e){
       $("#drivein-window").css('visibility', 'visible');
       $("#drivein-window iframe").css('display', 'block');
+      appendToDock('#drivein');
     });
-    $("#journey").bind('vclick click', function (e){
+    $("#journey").bind('vclick', function (e){
       $("#journey-window").css('visibility', 'visible');
       $("#journey-window iframe").css('display', 'block');
+      appendToDock('#journey');
     });
-    $("#sttropez").bind('vclick click', function (e){
+    $("#sttropez").bind('vclick', function (e){
       $("#sttropez-window").css('visibility', 'visible');
       $("#sttropez-window iframe").css('display', 'block');
+      appendToDock('#sttropez');
     });
-    $("#imdb").bind('vclick click', function (e){
+    $("#imdb").bind('vclick', function (e){
       $("#imdb-window").css('visibility', 'visible');
       $("#imdb-window iframe").css('display', 'block');
+      appendToDock('#imdb');
     });
-    $(".maximize").bind('vclick click', function (e){
+    $(".maximize").bind('vclick', function (e){
       $(this).parent().parent().parent().css('height', '100%');
     });
-    $(".close").bind('vclick click', function (e){
+    $(".minimize").bind('vclick', function (e){
+      
+      $(this).parent().parent().parent().css('visibility', 'hidden');
+      
+    });
+    $(".close").bind('vclick', function (e){
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
-    $("#drivein-window .close").bind('vclick click', function (e){
+    $("#drivein-window .close").bind('vclick', function (e){
       $("#drivein-window iframe").contents().find('#canvas').click();
       $("#drivein-window iframe").contents().find('#fillwidth').get(0).pause();
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
-    $("#about").bind('vclick click', function (e){
+    $("#about").bind('vclick', function (e){
       $("#about-window").css('visibility', 'visible');
       $("#about-window iframe").css('display', 'block');
+      appendToDock('#about');
     });
     var menuShown = false;
     var maximized = false;
-    $(".start-button").bind('vclick click', function (e){
+    $(".start-button").bind('vclick', function (e){
       if (menuShown === false) {
         menuShown = true;
         $(".start-menu").stop().animate({height: "+=273px"}, 200);
@@ -302,7 +325,7 @@ function initTouchHandler() {
         $(".start-menu").stop().animate({height: "-=273px"}, 200);
       }
     });
-    $(".maximize").bind('vclick click', function (e){
+    $(".maximize").bind('vclick', function (e){
       if (maximized === false) {
         maximized = true;
         $(this).parent().parent().parent().addClass('maximized');

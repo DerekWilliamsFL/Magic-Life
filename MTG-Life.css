@@ -38,7 +38,7 @@ body {
     box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
 }
 
-.start-button img {
+.start-button img, .docked img {
 
 width: 16px;
 height: 16px;
@@ -195,7 +195,7 @@ height: 16px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 95%;
+    height: 500px;
     width: 100%;
     overflow: auto;
     margin: 0;
@@ -207,21 +207,13 @@ height: 16px;
 }
 
 #sttropez-window{
-    height: 800px;
+    height: 600px;
     width: 650px;
-}
-
-#sttropez-window iframe{
-    height: 97.5%
 }
 
 #imdb-window{
     height: 700px;
     width: 700px;
-}
-
-#imdb-window iframe{
-    height: 97%
 }
 
 #drivein-window {
@@ -262,6 +254,39 @@ height: 16px;
     bottom: 0;
     right: 0;
     left: 0;
+}
+
+.docked {
+    width: 50px;
+    height: 22px;
+    padding: 2px;
+    padding-bottom: 5px;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+    box-shadow: inset 1px 1px #dfdfdf,1px 0 #000,0 1px #000,1px 1px #000;
+    cursor: pointer;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+.docked:focus{
+border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+}
+
+.docked span {
+    display: inline-block;
+    font-weight: bold;
+    padding: 1px;
+    float: right;
+}
+
+.docked img {
 }
 
 @media only screen and (max-width: 1024px) {
