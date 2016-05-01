@@ -244,31 +244,45 @@ function initTouchHandler() {
       var localdate =  dNow.getHours() + ':' + dNow.getMinutes();
       $('#time').text(localdate);
     }
+    function doit(selector) {
+      var div2Pos = $(".bottom-dock .docked").position();
+      var div2Width = $(".bottom-dock .docked").css("width");
+      var div2Height = $(".bottom-dock .docked").css("height");
+      $(selector).animate({left:div2Pos.left, width:div2Width, height:div2Height, bottom: '0'}, 300);
+      setTimeout(function(){
+        $(selector).find('.iframe').find('iframe').css('display', 'none');
+      $(selector).css('visibility', 'hidden');
+      }, 300);          
+    }
     updateTime();
     setInterval(updateTime, 5000);
     function appendToDock(selector) {
       var imgsrc = $(selector).find('img').attr('src');
       $('.bottom-dock').append('<button class="docked"><img src=' + imgsrc + '></button>' );
-    }
+    };
     initTouchHandler();
     $(".application-frame").draggable({
       iframeFix: true,
       cursor: "pointer",
     });
-    $(".docked").bind('vclick', function (e){
-      $("#resume-window").css('visibility', 'visible');
-      $("#resume-window .iframe img").css('display', 'block');
-      appendToDock('#resume');
+    $(".bottom-dock").on('vclick', '.docked', function (e){
+        var imgsrc = $(this).find('img').attr('src');
+        var blue = $(".application-frame").find("img[src=" + "'" + imgsrc + "'" +"]").parent().parent().parent();
+        var selector = "#" + blue.attr('id');
+        $(selector).css('visibility', 'visible');
+      $(selector + " iframe").css('display', 'block');
     });
     $("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
       $("#resume-window .iframe img").css('display', 'block');
-      appendToDock('#resume');
+      appendToDock(this);
+      ;
     });
     $("#drivein").bind('vclick', function (e){
       $("#drivein-window").css('visibility', 'visible');
       $("#drivein-window iframe").css('display', 'block');
-      appendToDock('#drivein');
+      appendToDock(this);
+
     });
     $("#journey").bind('vclick', function (e){
       $("#journey-window").css('visibility', 'visible');
@@ -289,13 +303,18 @@ function initTouchHandler() {
       $(this).parent().parent().parent().css('height', '100%');
     });
     $(".minimize").bind('vclick', function (e){
-      
-      $(this).parent().parent().parent().css('visibility', 'hidden');
+      doit("#drivein-window");
+
+     //$(this).parent().parent().parent().css('visibility', 'hidden');
       
     });
     $(".close").bind('vclick', function (e){
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
+        var imgsrc = $(this).parent().parent().find('img').attr('src');
+      var red = $(".bottom-dock").find("img[src=" + "'" + imgsrc + "'" +"]").parent();
+      red.remove();
+
     });
     $("#drivein-window .close").bind('vclick', function (e){
       $("#drivein-window iframe").contents().find('#canvas').click();
