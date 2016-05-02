@@ -251,15 +251,12 @@ function touchHandler(event) {
 var message = "";
 
 $("#sendMessage").on("click", function() {
-    message = $("#contactform").serialize();
     $.ajax({
         url: "https://formspree.io/derekwilliamsfl@gmail.com", 
         method: "POST",
-        data: {message: message},
+        data: $("#contactform").serialize(),
         dataType: "json"
     });
-    alert('Thanks for the email, we\'ll be in touch promptly.');
-    return false;
 });
 
 function initTouchHandler() {
