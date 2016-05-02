@@ -67,7 +67,7 @@ height: 16px;
 }
 
 #inset-notif{
-        float: right;
+    float: right;
     border-top: 1px solid rgb(128,128,128);
     border-left: 1px solid rgb(128,128,128);
     border-bottom: 1px solid rgb(255,255,255);
@@ -154,13 +154,11 @@ height: 16px;
     width: 640px;
 } 
 
-/*.application-frame.ui-resizable {
-        position: absolute !important;
-}*/
 .application-controlbar {
-    background: gray;
+    background: #000080;
     height: 20px;
     border-bottom: 2px solid silver;
+    color: white;
 }
 
 .application-title img {
@@ -206,6 +204,7 @@ height: 16px;
     margin: 0;
 }
 
+
 #journey-window{
     height: 421px;
     width: 640px;
@@ -234,6 +233,58 @@ height: 16px;
     left:-30px;
 }
 
+#email-window {
+    height: 400px;
+    width: 500px;
+    background: gray;
+}
+
+#email-window form{
+    border: 1px solid black;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+    box-shadow: 0 1px #fff inset;
+    padding: 5px;
+}
+
+
+#email-window input[type="text"], input[type="email"], textarea, #sendMessage:active {
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+}
+
+.emailform {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+#email-window input[type="text"], input[type="email"] {
+    float: right;
+    width: 70%;
+    display: inline-block;
+
+}
+
+#email-window form span {
+
+    margin-top: 2px;
+    float: left;
+}
+
+#email-window textarea {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 35px;
+    display: block;
+    height: 150px;
+}
+
+#sendMessage {
+    margin: 10px;
+}
 .close {
     background: url(Images/close.png);
     height: 15px;
@@ -291,9 +342,6 @@ border-top: 1px solid #000;
     float: right;
 }
 
-.docked img {
-}
-
 @media only screen and (max-width: 1024px) {
 
 
@@ -303,6 +351,7 @@ border-top: 1px solid #000;
 
    body {
         width: 480px;
+        overflow-y: auto;
     }
 
     .maximized {
@@ -310,7 +359,7 @@ border-top: 1px solid #000;
         width: 480px;
     }
 
-    #sttropez-window, #imdb-window, #journey-window, #resume-window, #about-window{
+    #sttropez-window, #imdb-window, #journey-window, #resume-window, #about-window, #email-window{
         height: 65%;
         width: 450px;
     }

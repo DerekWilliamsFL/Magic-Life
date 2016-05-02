@@ -66,15 +66,38 @@
         </div>
     </a>
   </li>
-   <li id="mailto">
-    <a href="mailto:derekwilliamsfl@gmail.com">
-      <div class="link-icon"><img src="Images/dit.png" width="32" height="32"/></div>
+   <li id="email">
+    <a>
+      <div class="link-icon"><img src="Images/email.png" width="32" height="32"/></div>
         <div class="link-text">
       E-Mail
         </div>
     </a>
   </li>
 </ul>
+<div id="email-window" class="application-frame">
+  <header class="application-controlbar">
+    <div class="application-title">
+      <img src="Images/email.png" width="16" height="16" />
+      <span>Email</span>
+    </div>
+    <div class="application-button-group">
+      <button class="minimize"></button>
+      <button class="maximize"></button>
+      <button class="close"></button>
+    </div>
+  </header>
+  <div class="iframe">
+  <form id="contactform">
+    <div class="emailform"> <span>Name: </span><input type="text" name="name"></div>
+    <div style="clear: both;"></div>
+    <div class="emailform"><span>Email:</span> <input type="email" name="_replyto"></div>
+    <div style="clear: both;"></div>
+    <textarea name="message" data-role="none"></textarea>
+    <div class="emailform"><input type="submit" id="sendMessage"></div>
+</form>
+  </div>
+</div>
 <div id="resume-window" class="application-frame">
   <header class="application-controlbar">
     <div class="application-title">
@@ -177,16 +200,13 @@
     <img class="win95start" src="Images/win95start.gif">
     <span>Start</span>
   </button>
-  <!--<button class="docked">
-    <img src="Images/dit.png">
-    <span>Drive-In Theater</span>
-  </button>-->
-  <div id="inset-notif" class="notif"><span id="time"><img src="Images/sound.gif"></img>12:34</span></div>
+  <div id="inset-notif" class="notif"><img src="Images/sound.gif"></img><span id="time">12:34</span></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
+
 function touchHandler(event) {
     var self = this;
     var touches = event.changedTouches,
@@ -211,14 +231,11 @@ function touchHandler(event) {
     first.target.dispatchEvent(simulatedEvent);
     var scrollables = [];
     var clickedInScrollArea = false;
-    // check if any of the parents has is-scollable class
     var parentEls = jQuery(event.target).parents().map(function() {
         try {
             if (jQuery(this).hasClass('is-scrollable')) {
                 clickedInScrollArea = true;
-                // get vertical direction of touch event
                 var direction = (window.startY < first.clientY) ? 'down' : 'up';
-                // calculate stuff... :o)
                 if (((jQuery(this).scrollTop() <= 0) && (direction === 'down')) || ((jQuery(this).height() <= jQuery(this).scrollTop()) && (direction === 'up')) ){
                 } else {
                     scrollables.push(this);
@@ -226,11 +243,25 @@ function touchHandler(event) {
             }
         } catch (e) {}
     });
-    // if not, prevent default to prevent bouncing
     if ((scrollables.length === 0) && (type === 'mousemove')) {
         event.preventDefault();
     }
 }
+
+var message = "";
+
+$("#sendMessage").on("click", function() {
+    message = $("#contactform").serialize();
+    $.ajax({
+        url: "https://formspree.io/derekwilliamsfl@gmail.com", 
+        method: "POST",
+        data: {message: message},
+        dataType: "json"
+    });
+    alert('Thanks for the email, we\'ll be in touch promptly.');
+    return false;
+});
+
 function initTouchHandler() {
     document.addEventListener("touchstart", touchHandler, true);
     document.addEventListener("touchmove", touchHandler, true);
@@ -245,8 +276,13 @@ function initTouchHandler() {
       $('#time').text(localdate);
     }
     function doit(selector) {
-      $(selector).find('.iframe').find('iframe').css('display', 'none');
-      $(selector).css('visibility', 'hidden');   
+      console.log(selector);
+      $(selector).animate({
+        'marginTop' : "+=1000px",
+      }, 200, function(){
+        $(selector).css('display', 'none');
+        $(selector).css('visibility', 'hidden');
+      });
     }
     updateTime();
     setInterval(updateTime, 5000);
@@ -263,21 +299,28 @@ function initTouchHandler() {
         var imgsrc = $(this).find('img').attr('src');
         var blue = $(".application-frame").find("img[src=" + "'" + imgsrc + "'" +"]").parent().parent().parent();
         var selector = "#" + blue.attr('id');
+        console.log(selector);
+        $(selector).find('.iframe').css('display', 'block');
         $(selector).css('visibility', 'visible');
-      $(selector + " iframe").css('display', 'block');
-      $(selector).animate({ }, 100);
+        $(selector).animate({
+        'marginTop' : "-=1000px",
+      }, 200, function(){  
+      });
     });
     $("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
-      $("#resume-window .iframe img").css('display', 'block');
+      $("#resume-window").css('display', 'block');
       appendToDock(this);
-      ;
+    });
+    $("#email").bind('vclick', function (e){
+      $("#email-window").css('display', 'block');
+      $("#email-window").css('visibility', 'visible');
+      appendToDock(this);
     });
     $("#drivein").bind('vclick', function (e){
       $("#drivein-window").css('visibility', 'visible');
-      $("#drivein-window iframe").css('display', 'block');
+      $("#drivein-window .iframe").css('display', 'block');
       appendToDock(this);
-
     });
     $("#journey").bind('vclick', function (e){
       $("#journey-window").css('visibility', 'visible');
@@ -303,10 +346,9 @@ function initTouchHandler() {
     $(".close").bind('vclick', function (e){
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
-        var imgsrc = $(this).parent().parent().find('img').attr('src');
+      var imgsrc = $(this).parent().parent().find('img').attr('src');
       var red = $(".bottom-dock").find("img[src=" + "'" + imgsrc + "'" +"]").parent();
       red.remove();
-
     });
     $("#drivein-window .close").bind('vclick', function (e){
       $("#drivein-window iframe").contents().find('#canvas').click();
