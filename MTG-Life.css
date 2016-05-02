@@ -1,6 +1,7 @@
 body {
     background: rgb(0, 128, 128);
     font-family: 'Arial', sans-serif;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
@@ -239,11 +240,11 @@ height: 16px;
 }
 
 #email-window form{
-   /* border: 1px solid black;*/
+    border: 1px solid black;
     width: 90%;
     margin: 0 auto;
     margin-top: 15px;
-    /*box-shadow: 0 1px #fff inset;*/
+    box-shadow: 0 1px #fff inset;
     padding: 5px;
 }
 
