@@ -245,14 +245,8 @@ function initTouchHandler() {
       $('#time').text(localdate);
     }
     function doit(selector) {
-      var div2Pos = $(".bottom-dock .docked").position();
-      var div2Width = $(".bottom-dock .docked").css("width");
-      var div2Height = $(".bottom-dock .docked").css("height");
-      $(selector).animate({left:div2Pos.left, width:div2Width, height:div2Height, bottom: '0'}, 300);
-      setTimeout(function(){
-        $(selector).find('.iframe').find('iframe').css('display', 'none');
-      $(selector).css('visibility', 'hidden');
-      }, 300);          
+      $(selector).find('.iframe').find('iframe').css('display', 'none');
+      $(selector).css('visibility', 'hidden');   
     }
     updateTime();
     setInterval(updateTime, 5000);
@@ -271,6 +265,7 @@ function initTouchHandler() {
         var selector = "#" + blue.attr('id');
         $(selector).css('visibility', 'visible');
       $(selector + " iframe").css('display', 'block');
+      $(selector).animate({ }, 100);
     });
     $("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
@@ -303,10 +298,7 @@ function initTouchHandler() {
       $(this).parent().parent().parent().css('height', '100%');
     });
     $(".minimize").bind('vclick', function (e){
-      doit("#drivein-window");
-
-     //$(this).parent().parent().parent().css('visibility', 'hidden');
-      
+      doit($(this).parent().parent().parent());
     });
     $(".close").bind('vclick', function (e){
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');

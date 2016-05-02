@@ -2,6 +2,11 @@ body {
     background: rgb(0, 128, 128);
     font-family: 'Arial', sans-serif;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .bottom-dock {
@@ -207,12 +212,12 @@ height: 16px;
 }
 
 #sttropez-window{
-    height: 600px;
+    height: 520px;
     width: 650px;
 }
 
 #imdb-window{
-    height: 700px;
+    height: 520px;
     width: 700px;
 }
 
@@ -319,12 +324,14 @@ border-top: 1px solid #000;
     #resume-window{
         height: 100%;
     }
+    
     .application-frame{
         position: absolute; 
           right: 0; 
           bottom: 0; 
           left: 0;
           top: 10%;
+
     }
 
     .iframe {
@@ -335,6 +342,7 @@ border-top: 1px solid #000;
       left: 0;
     -webkit-overflow-scrolling: touch;
       overflow-y: scroll;
+
     }
 
     .application-frame iframe {
@@ -342,14 +350,16 @@ border-top: 1px solid #000;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 300px;
-        width: 460px;
         margin: 0;
         display: none;    
     }
 
      #drivein-window iframe{
         top: 0;
+    }
+
+    #journey-window {
+        height: 400px;
     }
 
     #sttropez-window iframe {
