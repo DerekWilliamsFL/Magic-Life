@@ -310,6 +310,11 @@ function initTouchHandler() {
       iframeFix: true,
       cursor: "pointer",
     });
+   /* $("div .application-frame").bind('vclick', function (e){
+       console.log(this.id);
+       var red = $(this).find('iframe').contents();
+       red.bind('vclick', function (e){})
+    });*/
     $(".bottom-dock").on('vclick', '.docked', function (e){
         var imgsrc = $(this).find('img').attr('src');
         var blue = $(".application-frame").find("img[src=" + "'" + imgsrc + "'" +"]").parent().parent().parent();
