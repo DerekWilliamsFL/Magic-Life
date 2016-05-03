@@ -397,8 +397,9 @@ border-top: 1px solid #000;
         right: 0; 
           bottom: 0; 
           left: 0;
-        -webkit-overflow-scrolling: touch;
           overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+          
 
     }
 
