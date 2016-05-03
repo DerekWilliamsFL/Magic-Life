@@ -350,7 +350,7 @@ function initTouchHandler() {
       appendToDock(this);
     });
     $(".maximize").bind('vclick', function (e){
-      $(this).parent().parent().parent().toggleClass('.maximized');
+      $(this).parent().parent().parent().addClass('.maximized');
     });
     $(".minimize").bind('vclick', function (e){
       doit($(this).parent().parent().parent());
