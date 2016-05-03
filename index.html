@@ -144,7 +144,7 @@
   <iframe src="http://derekwilliamsfl.github.io/St.Tropez/" name="sttropez"></iframe>
 </div>
 </div>
-<div style="text-align: center;" id="drivein-window" class="application-frame">
+<div id="drivein-window" class="application-frame">
   <header class="application-controlbar">
     <div class="application-title">
       <img src="Images/dit.png" width="16" height="16" />
@@ -287,19 +287,26 @@ function initTouchHandler() {
       $('#time').text(localdate);
     }
     function doit(selector) {
-      console.log(selector);
       $(selector).animate({
         'marginTop' : "+=1000px",
       }, 200, function(){
         $(selector).css('display', 'none');
-        $(selector).css('visibility', 'hidden');
+        //$(selector).css('visibility', 'hidden');
       });
     }
     updateTime();
     setInterval(updateTime, 5000);
     function appendToDock(selector) {
       var imgsrc = $(selector).find('img').attr('src');
-      $('.bottom-dock').append('<button class="docked"><img src=' + imgsrc + '></button>' );
+      
+      if (imgsrc !== $('.docked img').attr('src')) {
+        $('.bottom-dock').append('<button class="docked"><img src=' + imgsrc + '></button>' );
+        console.log("adding");
+      }
+      else if (imgsrc === $('.docked img').attr('src')) {
+        console.log("not adding");
+      
+    }
     };
     initTouchHandler();
     $(".application-frame").draggable({
@@ -312,7 +319,7 @@ function initTouchHandler() {
         var selector = "#" + blue.attr('id');
         console.log(selector);
         $(selector).css('display', 'block');
-        $(selector).css('visibility', 'visible');
+        //$(selector).css('visibility', 'visible');
         $(selector).animate({
         'marginTop' : "-=1000px",
       }, 200, function(){  
