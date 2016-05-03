@@ -87,7 +87,6 @@
       <button class="close"></button>
     </div>
   </header>
-  <div class="iframe">
   <form id="contactform">
     <div class="emailform"> <span>Name: </span><input type="text" name="name"></div>
     <div style="clear: both;"></div>
@@ -96,7 +95,6 @@
     <textarea name="message" data-role="none"></textarea>
     <div class="emailform"><input type="submit" id="sendMessage"></div>
 </form>
-  </div>
 </div>
 <div id="resume-window" class="application-frame">
   <header class="application-controlbar">
@@ -326,33 +324,33 @@ function initTouchHandler() {
       appendToDock(this);
     });
     $("#email").bind('vclick', function (e){
-      $("#email-window").css('display', 'block');
       $("#email-window").css('visibility', 'visible');
+      //$("#email-window").css('visibility', 'visible');
       appendToDock(this);
     });
 
     $("#drivein").bind('vclick', function (e){
       $("#drivein-window").css('visibility', 'visible');
-      $("#drivein-window .iframe").css('display', 'block');
+      $("#drivein-window iframe").css('display', 'block');
       appendToDock(this);
     });
     $("#journey").bind('vclick', function (e){
       $("#journey-window").css('visibility', 'visible');
       $("#journey-window iframe").css('display', 'block');
-      appendToDock('#journey');
+      appendToDock(this);
     });
     $("#sttropez").bind('vclick', function (e){
       $("#sttropez-window").css('visibility', 'visible');
       $("#sttropez-window iframe").css('display', 'block');
-      appendToDock('#sttropez');
+      appendToDock(this);
     });
     $("#imdb").bind('vclick', function (e){
       $("#imdb-window").css('visibility', 'visible');
       $("#imdb-window iframe").css('display', 'block');
-      appendToDock('#imdb');
+      appendToDock(this);
     });
     $(".maximize").bind('vclick', function (e){
-      $(this).parent().parent().parent().css('height', '100%');
+      $(this).parent().parent().parent().toggleClass('.maximized');
     });
     $(".minimize").bind('vclick', function (e){
       doit($(this).parent().parent().parent());
@@ -377,7 +375,7 @@ function initTouchHandler() {
     $("#about").bind('vclick', function (e){
       $("#about-window").css('visibility', 'visible');
       $("#about-window iframe").css('display', 'block');
-      appendToDock('#about');
+      appendToDock(this);
     });
     var menuShown = false;
     var maximized = false;

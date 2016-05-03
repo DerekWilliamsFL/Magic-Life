@@ -1,7 +1,6 @@
 body {
     background: rgb(0, 128, 128);
     font-family: 'Arial', sans-serif;
-    overflow: hidden;
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
@@ -296,20 +295,20 @@ height: 16px;
     margin: 10px;
 }
 .close {
-    background: url(Images/close.png);
+    background: url(Images/close.png) no-repeat;
     height: 15px;
     width: 15px;
 }
 
 .minimize {
-    background: url(Images/minimize.png);
+    background: url(Images/minimize.png) no-repeat;
     height: 15px;
     width: 15px;
 
 }
 
 .maximize {
-    background: url(Images/maximize.png);
+    background: url(Images/maximize.png) no-repeat;
     height: 15px;
     width: 15px;
 }
@@ -361,7 +360,6 @@ border-top: 1px solid #000;
 
    body {
         width: 480px;
-        overflow-y: auto;
     }
 
     .maximized {
@@ -397,10 +395,10 @@ border-top: 1px solid #000;
         position: absolute;
         top:22px;
         right: 0; 
-      bottom: 0; 
-      left: 0;
-    -webkit-overflow-scrolling: touch;
-      overflow-y: scroll;
+          bottom: 0; 
+          left: 0;
+        -webkit-overflow-scrolling: touch;
+          overflow-y: scroll;
 
     }
 
