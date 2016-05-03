@@ -311,7 +311,7 @@ function initTouchHandler() {
         var blue = $(".application-frame").find("img[src=" + "'" + imgsrc + "'" +"]").parent().parent().parent();
         var selector = "#" + blue.attr('id');
         console.log(selector);
-        $(selector).find('.iframe').css('display', 'block');
+        $(selector).css('display', 'block');
         $(selector).css('visibility', 'visible');
         $(selector).animate({
         'marginTop' : "-=1000px",
@@ -350,7 +350,7 @@ function initTouchHandler() {
       appendToDock(this);
     });
     $(".maximize").bind('vclick', function (e){
-      $(this).parent().parent().parent().addClass('.maximized');
+      $(this).parent().parent().parent().css('height', '100%');
     });
     $(".minimize").bind('vclick', function (e){
       doit($(this).parent().parent().parent());
