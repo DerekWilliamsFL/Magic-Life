@@ -298,15 +298,12 @@ function initTouchHandler() {
     setInterval(updateTime, 5000);
     function appendToDock(selector) {
       var imgsrc = $(selector).find('img').attr('src');
-      
-      if (imgsrc !== $('.docked img').attr('src')) {
+      var images = $('.docked').children('img').map(function(){
+          return $(this).attr('src')
+      }).get();
+      if (images.indexOf(imgsrc) === -1) {
         $('.bottom-dock').append('<button class="docked"><img src=' + imgsrc + '></button>' );
-        console.log("adding");
       }
-      else if (imgsrc === $('.docked img').attr('src')) {
-        console.log("not adding");
-      
-    }
     };
     initTouchHandler();
     $(".application-frame").draggable({
@@ -317,7 +314,6 @@ function initTouchHandler() {
         var imgsrc = $(this).find('img').attr('src');
         var blue = $(".application-frame").find("img[src=" + "'" + imgsrc + "'" +"]").parent().parent().parent();
         var selector = "#" + blue.attr('id');
-        console.log(selector);
         $(selector).css('display', 'block');
         //$(selector).css('visibility', 'visible');
         $(selector).animate({
