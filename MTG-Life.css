@@ -3,8 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    /*not hidden*/
-    overflow: scroll;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -315,13 +314,7 @@ height: 16px;
     width: 15px;
 }
 
-.maximized {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
+
 
 .docked {
     width: 50px;
@@ -353,6 +346,10 @@ border-top: 1px solid #000;
     float: right;
 }
 
+.maximized {
+    height: 100vh;
+}
+
 @media only screen and (max-width: 1024px) {
 
 
@@ -363,12 +360,6 @@ border-top: 1px solid #000;
    body {
         width: 480px;
     }
-
-    .maximized {
-        height: 100%;
-        width: 480px;
-    }
-
     #sttropez-window, #imdb-window, #journey-window, #resume-window, #about-window, #email-window{
         height: 65%;
         width: 480px;
@@ -438,6 +429,4 @@ border-top: 1px solid #000;
         position: absolute;
         left: -10px;
     }
-
-
 }

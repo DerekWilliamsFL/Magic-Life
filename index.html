@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1">
   <link rel="shortcut icon" href="computer.gif">
   <title>Derek Williams</title>
   <link rel="Stylesheet" href="css-reset.css">
@@ -19,7 +19,7 @@
     </a>
   </li>
   <li id="about">
-    <a target="about">
+    <a href="http://derekwilliamsfl.github.io" target="about">
       <div class="link-icon"><img src="Images/shell32_24.ico"/></div>
         <div class="link-text">
       About Me
@@ -35,7 +35,7 @@
     </a>
   </li>
   <li id="journey">
-    <a  href="http://derekwilliamsfl.github.io/Canvas/" target="journey">
+    <a href="http://derekwilliamsfl.github.io/Canvas/" target="journey">
       <div class="link-icon"><img src="Images/character.png"/></div>
         <div class="link-text">
       Journey
@@ -104,7 +104,6 @@
     </div>
     <div class="application-button-group">
       <button class="minimize"></button>
-      <button class="maximize"></button>
       <button class="close"></button>
     </div>
   </header>
@@ -120,7 +119,6 @@
     </div>
     <div class="application-button-group">
       <button class="minimize"></button>
-      <button class="maximize"></button>
       <button class="close"></button>
     </div>
   </header>
@@ -136,7 +134,6 @@
     </div>
     <div class="application-button-group">
       <button class="minimize"></button>
-      <button class="maximize"></button>
       <button class="close"></button>
     </div>
   </header>
@@ -152,7 +149,6 @@
     </div>
     <div class="application-button-group">
       <button class="minimize"></button>
-      <button class="maximize"></button>
       <button class="close"></button>
     </div>
   </header>
@@ -168,7 +164,6 @@
     </div>
     <div class="application-button-group">
       <button class="minimize"></button>
-      <button class="maximize"></button>
       <button class="close"></button>
     </div>
   </header>
@@ -184,7 +179,6 @@
     </div>
     <div class="application-button-group">
       <button class="minimize"></button>
-      <button class="maximize"></button>
       <button class="close"></button>
     </div>
   </header>
@@ -258,17 +252,17 @@ $("#sendMessage").on("click", function() {
           $('#contactform').html("<p>Sending..</p>");
           $('#contactform').append("<img src='Images/email.gif'/>");
           $('#contactform img').css('display','block');
-          $('#contactform form').css('border','none'); },
+          $('#email-window form').css('border','none'); },
         success: function(data) {
         $('#contactform').html("<p>Sent!</p> ");
           $('#contactform').append("<img src='Images/sent.gif'/>");
           $('#contactform img').css('display','block');
-          $('#contactform form').css('border','none'); },
+          $('#email-window form').css('border','none'); },
         error: function(err) {
         $('#contactform').html("<p>Not Sent. Please try again.</p>");
           $('#contactform').append("<img src='Images/missed.gif'/>");
           $('#contactform img').css('display','block');
-          $('#contactform form').css('border',''); }
+          $('#email-window form').css('border',''); }
     });
 });
 
@@ -287,13 +281,18 @@ function initTouchHandler() {
       $('#time').text(localdate);
     }
     function doit(selector) {
-      $(selector).animate({
-        'marginTop' : "+=1000px",
-      }, 200, function(){
-        $(selector).css('display', 'none');
-        //$(selector).css('visibility', 'hidden');
-      });
-    }
+      if ($(selector).css('visibility') === 'visible') {
+        //console.log(selector);
+        $(selector).animate({'margin-bottom': '1000px'}, 200);
+        setTimeout($(selector).css('visibility', 'hidden'), 250);
+      }
+      else if ($(selector).css('visibility') === 'hidden') {
+        console.log('red');
+      }
+    };
+    $(".minimize").bind('vclick', function (e){
+      doit($(this).parent().parent().parent());
+    });
     updateTime();
     setInterval(updateTime, 5000);
     function appendToDock(selector) {
@@ -319,12 +318,13 @@ function initTouchHandler() {
         var imgsrc = $(this).find('img').attr('src');
         var blue = $(".application-frame").find("img[src=" + "'" + imgsrc + "'" +"]").parent().parent().parent();
         var selector = "#" + blue.attr('id');
-        $(selector).css('display', 'block');
-        //$(selector).css('visibility', 'visible');
-        $(selector).animate({
-        'marginTop' : "-=1000px",
-      }, 200, function(){  
-      });
+        if ($(selector).css('visibility') === 'hidden') {
+        $(selector).animate({'margin-top': '1000px'}, 200);
+        setTimeout($(selector).css('visibility', 'visible'), 250);
+      }
+      else if ($(selector).css('visibility') === 'visible') {
+        console.log('blue');
+      } 
     });
     $("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
@@ -357,12 +357,7 @@ function initTouchHandler() {
       $("#imdb-window iframe").css('display', 'block');
       appendToDock(this);
     });
-    $(".maximize").bind('vclick', function (e){
-      $(this).parent().parent().parent().css('height', '100%');
-    });
-    $(".minimize").bind('vclick', function (e){
-      doit($(this).parent().parent().parent());
-    });
+    
     $(".close").bind('vclick', function (e){
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
@@ -386,7 +381,6 @@ function initTouchHandler() {
       appendToDock(this);
     });
     var menuShown = false;
-    var maximized = false;
     $(".start-button").bind('vclick', function (e){
       if (menuShown === false) {
         menuShown = true;
@@ -402,16 +396,6 @@ function initTouchHandler() {
         $(".start-menu").stop().animate({height: "-=273px"}, 200);
       }
     });
-    $(".maximize").bind('vclick', function (e){
-      if (maximized === false) {
-        maximized = true;
-        $(this).parent().parent().parent().addClass('maximized');
-      }
-      else {
-        maximized = false;
-        $(this).parent().parent().parent().removeClass('maximized');
-      }
-    })
 });
 </script>
 </body>
