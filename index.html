@@ -365,7 +365,12 @@ function initTouchHandler() {
     });
     $("#drivein-window .close").bind('vclick', function (e){
       $("#drivein-window iframe").contents().find('#canvas').click();
-      $("#drivein-window iframe").contents().find('#fillwidth').get(0).pause();
+      var fillwidth = $("#drivein-window iframe").contents().find('#fillwidth').get(0)//.pause();
+      console.log(fillwidth);
+      if (!fillwidth.paused) {
+
+        fillwidth.pause();
+      }
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
