@@ -372,7 +372,6 @@ border-top: 1px solid #000;
     #drivein-window {
         height: 300px;
         width: 430px;
-        position: relative;
     }
 
     #resume-window{
