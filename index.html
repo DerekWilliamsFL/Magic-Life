@@ -83,7 +83,6 @@
     </div>
     <div class="application-button-group">
       <button class="minimize"></button>
-      <button class="maximize"></button>
       <button class="close"></button>
     </div>
   </header>
@@ -94,6 +93,7 @@
     <div style="clear: both;"></div>
     <textarea name="message" data-role="none"></textarea>
     <div class="emailform"><input type="submit" id="sendMessage"></div>
+    <div id="sendprogress"></div>
 </form>
 </div>
 <div id="resume-window" class="application-frame">
@@ -249,19 +249,19 @@ $("#sendMessage").on("click", function() {
         data: $("#contactform").serialize(),
         dataType: "json",
         beforeSend: function() { 
-          $('#contactform').html("<p>Sending..</p>");
-          $('#contactform').append("<img src='Images/email.gif'/>");
-          $('#contactform img').css('display','block');
+          $('#sendprogress').html("<p>Sending..</p>");
+          $('#sendprogress').append("<img src='Images/email.gif'/>");
+          $('#sendprogress img').css('display','block');
           $('#email-window form').css('border','none'); },
         success: function(data) {
-        $('#contactform').html("<p>Sent!</p> ");
-          $('#contactform').append("<img src='Images/sent.gif'/>");
-          $('#contactform img').css('display','block');
+        $('#sendprogress').html("<p>Sent!</p> ");
+          $('#sendprogress').append("<img src='Images/sent.gif'/>");
+          $('#sendprogress img').css('display','block');
           $('#email-window form').css('border','none'); },
         error: function(err) {
-        $('#contactform').html("<p>Not Sent. Please try again.</p>");
-          $('#contactform').append("<img src='Images/missed.gif'/>");
-          $('#contactform img').css('display','block');
+        $('#sendprogress').html("<p>Not Sent. Please try again.</p>");
+          $('#sendprogress').append("<img src='Images/missed.gif'/>");
+          $('#sendprogress img').css('display','block');
           $('#email-window form').css('border',''); }
     });
 });
@@ -281,14 +281,12 @@ function initTouchHandler() {
       $('#time').text(localdate);
     }
     function doit(selector) {
-      if ($(selector).css('visibility') === 'visible') {
-        //console.log(selector);
-        $(selector).animate({'margin-bottom': '1000px'}, 200);
-        setTimeout($(selector).css('visibility', 'hidden'), 250);
-      }
-      else if ($(selector).css('visibility') === 'hidden') {
-        console.log('red');
-      }
+        console.log(selector);
+        $(selector).animate({
+        'marginTop' : "+=1000px",
+      }, 200, function () {
+          $(selector).css('visibility', 'hidden');
+        });
     };
     $(".minimize").bind('vclick', function (e){
       doit($(this).parent().parent().parent());
@@ -309,22 +307,19 @@ function initTouchHandler() {
       iframeFix: true,
       cursor: "pointer",
     });
-   /* $("div .application-frame").bind('vclick', function (e){
-       console.log(this.id);
-       var red = $(this).find('iframe').contents();
-       red.bind('vclick', function (e){})
-    });*/
     $(".bottom-dock").on('vclick', '.docked', function (e){
         var imgsrc = $(this).find('img').attr('src');
         var blue = $(".application-frame").find("img[src=" + "'" + imgsrc + "'" +"]").parent().parent().parent();
         var selector = "#" + blue.attr('id');
         if ($(selector).css('visibility') === 'hidden') {
-        $(selector).animate({'margin-top': '1000px'}, 200);
-        setTimeout($(selector).css('visibility', 'visible'), 250);
-      }
-      else if ($(selector).css('visibility') === 'visible') {
-        console.log('blue');
-      } 
+          $(selector).css('visibility', 'visible');
+          $(selector).animate({
+        'marginTop' : "-=1000px",
+      }, 200);
+        }
+        else if ($(selector).css('visibility') === 'visible') {
+          console.log('blue');
+        } 
     });
     $("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
@@ -333,7 +328,6 @@ function initTouchHandler() {
     });
     $("#email").bind('vclick', function (e){
       $("#email-window").css('visibility', 'visible');
-      //$("#email-window").css('visibility', 'visible');
       appendToDock(this);
     });
 

@@ -222,7 +222,6 @@ height: 16px;
 
 #drivein-window {
     overflow: hidden;
-    position: relative;
 }
 
 #drivein-window iframe{
@@ -259,17 +258,22 @@ height: 16px;
 }
 
 #email-window img {
-    display: none;
-    margin: 100px auto;
 }
 
 #email-window p {
     text-align: center;
     font-size: 1.4em;
+    margin-top: 30px;
 }
 .emailform {
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 7px;
+    margin-bottom: 5px;
+}
+
+#sendprogress img {
+    margin-top: -100px;
+    margin-left: 180px;
+    width: 20%;
 }
 #email-window input[type="text"], input[type="email"] {
     float: right;
@@ -285,9 +289,9 @@ height: 16px;
 }
 
 #email-window textarea {
-    width: 90%;
+    width: 92%;
     margin: 0 auto;
-    margin-top: 35px;
+    margin-top: 15px;
     display: block;
     height: 150px;
 }
