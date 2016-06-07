@@ -364,7 +364,7 @@ function initTouchHandler() {
       $('contactform').replaceWith(originalState);
     });
     $("#drivein-window .close").bind('vclick', function (e){
-      var fillwidth = $("#drivein-window iframe").contents().find('video').contentWindow.canvasVideo;
+      var fillwidth = $("#drivein-window iframe").contentWindow.canvasVideo;
       console.log(fillwidth);
       if (!fillwidth.paused) {
         console.log(fillwidth);
