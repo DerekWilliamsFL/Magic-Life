@@ -366,12 +366,9 @@ function initTouchHandler() {
     $("#drivein-window .close").bind('vclick', function (e){
       var fillwidth = document.getElementById('ditiframe').contentWindow['canvasVideo'];
       console.log(fillwidth);
-      if (!fillwidth.paused) {
-        console.log(fillwidth);
+      if (fillwidth.playing) {
+        console.log("playing, should stop");
         fillwidth.pause();
-      }
-      else if (fillwidth.paused){
-        console.log('paused')
       }
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
