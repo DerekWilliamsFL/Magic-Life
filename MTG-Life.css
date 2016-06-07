@@ -207,14 +207,6 @@ height: 16px;
     height: 520px;
     width: 650px;
 }
-#resume-window .iframe img{
-        height: 100%;
-        width: 100%;
-        transform: scale(1.17, 1.17);
-        -ms-transform: scale(1.17, 1.17);
-        -webkit-transform: scale(1.17, 1.17);
-        position: absolute;
-    }
 #journey-window{
     height: 421px;
     width: 640px;
