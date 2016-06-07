@@ -153,7 +153,7 @@
     </div>
   </header>
   <div class="iframe">
-  <iframe src="http://derekwilliamsfl.github.io/Drive-In-Theater/" name="drivein"></iframe>
+  <iframe id="ditiframe" src="http://derekwilliamsfl.github.io/Drive-In-Theater/" name="drivein"></iframe>
 </div>
 </div>
 <div id="imdb-window" class="application-frame">
@@ -364,7 +364,7 @@ function initTouchHandler() {
       $('contactform').replaceWith(originalState);
     });
     $("#drivein-window .close").bind('vclick', function (e){
-      var fillwidth = $("#drivein-window iframe").contentWindow.canvasVideo;
+      var fillwidth = document.getElementById('ditiframe').contentWindow['canvasVideo'];
       console.log(fillwidth);
       if (!fillwidth.paused) {
         console.log(fillwidth);
