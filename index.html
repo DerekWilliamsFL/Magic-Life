@@ -323,9 +323,8 @@ function initTouchHandler() {
     });
     $("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
-      $("#resume-window").css('display', 'block');
+      $("#resume-window iframe").css('display', 'block');
       if ($(window).width() < 481) {
-        console.log('changing');
          $('#resume-window .iframe iframe').replaceWith($("<img src='Images/DWilliams-Resume.pdf' />"));
       }
       appendToDock(this);
