@@ -379,7 +379,7 @@ border-top: 1px solid #000;
     `
     .application-frame{
         position: absolute; 
-          right: 40%; 
+          right: 0; 
           bottom: 0; 
           left: 0;
           top: 10%;
