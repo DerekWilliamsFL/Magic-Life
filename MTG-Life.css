@@ -142,7 +142,7 @@ height: 16px;
 .application-frame {
     position: absolute;
     top: 10%;
-    right: 20%;
+    left: 10%;
     visibility: hidden;
     border-top: 2px solid white;
     border-left: 2px solid white;
