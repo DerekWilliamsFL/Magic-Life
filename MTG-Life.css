@@ -142,7 +142,7 @@ height: 16px;
 .application-frame {
     position: absolute;
     top: 10%;
-    left: 10%;
+    left: 0%;
     visibility: hidden;
     border-top: 2px solid white;
     border-left: 2px solid white;
@@ -361,7 +361,6 @@ border-top: 1px solid #000;
     }
 
     #imdb-window {
-        height: 75%;
         width: 100%;
     }
     #drivein-window {
