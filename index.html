@@ -85,14 +85,14 @@
         </header>
         <form id="contactform" name="contactform">
             <div class="emailform">
-                <span>Name:</span> <input name="name" type="text">
+                <span>Name:</span> <input name="name" type="text" required>
             </div>
             <div style="clear: both;"></div>
             <div class="emailform">
-                <span>Email:</span> <input name="_replyto" type="email">
+                <span>Email:</span> <input name="_replyto" type="email" required>
             </div>
             <div style="clear: both;"></div>
-            <textarea data-role="none" name="message"></textarea>
+            <textarea data-role="none" name="message" required></textarea>
             <div class="emailform">
                 <input id="sendMessage" type="submit">
             </div>
