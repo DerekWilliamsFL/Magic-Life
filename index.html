@@ -75,117 +75,128 @@
     </a>
   </li>
 </ul>
-<div id="email-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/email.png" width="16" height="16" />
-      <span>Email</span>
+    <div class="application-frame" id="email-window">
+        <header class="application-controlbar">
+            <div class="application-title">
+                <img height="16" src="Images/email.png" width="16">
+                <span>Email</span>
+            </div>
+            <div class="application-button-group">
+                <button class="minimize"></button> <button class=
+                "close"></button>
+            </div>
+        </header>
+        <form id="contactform" name="contactform">
+            <div class="emailform">
+                <span>Name:</span> <input name="name" type="text">
+            </div>
+            <div style="clear: both;"></div>
+            <div class="emailform">
+                <span>Email:</span> <input name="_replyto" type="email">
+            </div>
+            <div style="clear: both;"></div>
+            <textarea data-role="none" name="message"></textarea>
+            <div class="emailform">
+                <input id="sendMessage" type="submit">
+            </div>
+            <div id="sendprogress"></div>
+        </form>
     </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="close"></button>
+    <div class="application-frame" id="about-window">
+        <header class="application-controlbar">
+            <div class="application-title">
+                <img height="16" src="Images/shell32_24.ico" width="16">
+                <span>About Me</span>
+            </div>
+            <div class="application-button-group">
+                <button class="minimize"></button> <button class=
+                "close"></button>
+            </div>
+        </header>
+        <div class="iframe">
+            <iframe id="about" name="about"></iframe>
+        </div>
     </div>
-  </header>
-  <form id="contactform">
-    <div class="emailform"> <span>Name: </span><input type="text" name="name"></div>
-    <div style="clear: both;"></div>
-    <div class="emailform"><span>Email:</span> <input type="email" name="_replyto"></div>
-    <div style="clear: both;"></div>
-    <textarea name="message" data-role="none"></textarea>
-    <div class="emailform"><input type="submit" value="Submit" id="sendMessage"></div>
-    <div id="sendprogress"></div>
-</form>
-</div>
-<div id="resume-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/shell32_35.ico" width="16" height="16" />
-      <span>Resume</span>
+    <div class="application-frame" id="resume-window">
+        <header class="application-controlbar">
+            <div class="application-title">
+                <img height="16" src="Images/shell32_35.ico" width="16">
+                <span>Resume</span>
+            </div>
+            <div class="application-button-group">
+                <button class="minimize"></button> <button class=
+                "close"></button>
+            </div>
+        </header>
+        <div class="iframe">
+            <iframe src="Images/DWilliams-Resume.pdf"></iframe>
+        </div>
     </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="close"></button>
+    <div class="application-frame" id="drivein-window">
+        <header class="application-controlbar">
+            <div class="application-title">
+                <img height="16" src="Images/dit.png" width="16"> <span>Drive
+                In Theater</span>
+            </div>
+            <div class="application-button-group">
+                <button class="minimize"></button> <button class=
+                "close"></button>
+            </div>
+        </header>
+        <div class="iframe">
+            <iframe id="ditiframe" name="drivein" src=
+            "http://derekwilliamsfl.github.io/Drive-In-Theater/"></iframe>
+        </div>
     </div>
-  </header>
-  <div class="iframe">
-    <iframe src="Images/DWilliams-Resume.pdf" />
-  </div>
-</div>
-<div id="about-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/shell32_24.ico" width="16" height="16" />
-      <span>About Me</span>
+    <div class="application-frame" id="imdb-window">
+        <header class="application-controlbar">
+            <div class="application-title">
+                <img height="16" src="Images/imdb.png" width="16"> <span>iMDB
+                Search</span>
+            </div>
+            <div class="application-button-group">
+                <button class="minimize"></button> <button class=
+                "close"></button>
+            </div>
+        </header>
+        <div class="iframe">
+            <iframe id="imdb" name="imdb" src=
+            "http://derekwilliamsfl.github.io/imdb-api/"></iframe>
+        </div>
     </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="close"></button>
+    <div class="application-frame" id="journey-window">
+        <header class="application-controlbar">
+            <div class="application-title">
+                <img height="16" src="Images/character.png" width="16">
+                <span>Journey in Canvas</span>
+            </div>
+            <div class="application-button-group">
+                <button class="minimize"></button> <button class=
+                "close"></button>
+            </div>
+        </header>
+        <div class="iframe">
+            <iframe id="journey" name="journey" src=
+            "http://derekwilliamsfl.github.io/Canvas/"></iframe>
+        </div>
     </div>
-  </header>
-  <div class="iframe">
-  <iframe name="about" ></iframe>
-</div>
-</div>
-<div id="sttropez-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/purse.png" width="16" height="16" />
-      <span>St. Tropez</span>
+    <div class="application-frame" id="sttropez-window">
+        <header class="application-controlbar">
+            <div class="application-title">
+                <img height="16" src="Images/purse.png" width="16"> <span>St.
+                Tropez</span>
+            </div>
+            <div class="application-button-group">
+                <button class="minimize"></button> <button class=
+                "close"></button>
+            </div>
+        </header>
+        <div class="iframe">
+            <iframe id="sttropez" name="sttropez" src=
+            "http://derekwilliamsfl.github.io/St.Tropez/"></iframe>
+        </div>
     </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="close"></button>
-    </div>
-  </header>
-  <div class="iframe">
-  <iframe src="http://derekwilliamsfl.github.io/St.Tropez/" name="sttropez"></iframe>
-</div>
-</div>
-<div id="drivein-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/dit.png" width="16" height="16" />
-      <span>Drive In Theater</span>
-    </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="close"></button>
-    </div>
-  </header>
-  <div class="iframe">
-  <iframe id="ditiframe" src="http://derekwilliamsfl.github.io/Drive-In-Theater/" name="drivein"></iframe>
-</div>
-</div>
-<div id="imdb-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/imdb.png" width="16" height="16" />
-      <span>iMDB Search</span>
-    </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="close"></button>
-    </div>
-  </header>
-  <div class="iframe">
-  <iframe  src="http://derekwilliamsfl.github.io/imdb-api/" name="imdb" ></iframe>
-</div>
-</div>
-<div id="journey-window" class="application-frame">
-  <header class="application-controlbar">
-    <div class="application-title">
-      <img src="Images/character.png" width="16" height="16" />
-      <span>Journey in Canvas</span>
-    </div>
-    <div class="application-button-group">
-      <button class="minimize"></button>
-      <button class="close"></button>
-    </div>
-  </header>
-  <div class="iframe">
-  <iframe src="http://derekwilliamsfl.github.io/Canvas/" name="journey" ></iframe>
-</div>
-</div>
+
 <div class="start-menu"></div>
 <div class="bottom-dock">
   <button class="start-button">
