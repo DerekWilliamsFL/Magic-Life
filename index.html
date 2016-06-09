@@ -111,10 +111,11 @@
             </div>
         </header>
         <div class="iframe">
-            <iframe id="about" name="about"></iframe>
+            <iframe id="about" name="about" src=
+            "http://derekwilliamsfl.github.io"></iframe>
         </div>
     </div>
-    <!--<div class="application-frame" id="resume-window">
+    <div class="application-frame" id="resume-window">
         <header class="application-controlbar">
             <div class="application-title">
                 <img height="16" src="Images/shell32_35.ico" width="16">
@@ -126,9 +127,8 @@
             </div>
         </header>
         <div class="iframe">
-            <iframe src="Images/DWilliams-Resume.pdf"></iframe>
         </div>
-    </div>-->
+    </div>
     <div class="application-frame" id="drivein-window">
         <header class="application-controlbar">
             <div class="application-title">
@@ -328,14 +328,6 @@ function initTouchHandler() {
           console.log('blue');
         } 
     });
-    /*$("#resume").bind('vclick', function (e){
-      $("#resume-window").css('visibility', 'visible');
-      $("#resume-window iframe").css('display', 'block');
-      if ($(window).width() < 481) {
-         $('#resume-window .iframe iframe').replaceWith($("<img src='Images/DWilliams-Resume.pdf' />"));
-      }
-      appendToDock(this);
-    });*/
     $("#email").bind('vclick', function (e){
       $("#email-window").css('visibility', 'visible');
       appendToDock(this);
