@@ -205,7 +205,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
-
+if ($(window).width() < 481) {
+         $('#resume-window .iframe iframe').replaceWith($("<img src='Images/DWilliams-Resume.pdf' />"));
+      }
 function touchHandler(event) {
     var self = this;
     var touches = event.changedTouches,
@@ -331,9 +333,7 @@ function initTouchHandler() {
     $("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
       $("#resume-window iframe").css('display', 'block');
-      if ($(window).width() < 481) {
-         $('#resume-window .iframe iframe').replaceWith($("<img src='Images/DWilliams-Resume.pdf' />"));
-      }
+      
       appendToDock(this);
     });
     $("#email").bind('vclick', function (e){
