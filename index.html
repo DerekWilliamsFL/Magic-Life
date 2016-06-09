@@ -11,7 +11,7 @@
 <body>
     <ul class="desktop-icons">
         <li id="resume">
-            <a target="resume">
+            <a href="https://www.dropbox.com/home?preview=DWilliams-Resume.pdf" target="_blank">
             <div class="link-icon"><img src="Images/shell32_35.ico"></div>
             <div class="link-text">
                 Resume
@@ -114,7 +114,7 @@
             <iframe id="about" name="about"></iframe>
         </div>
     </div>
-    <div class="application-frame" id="resume-window">
+    <!--<div class="application-frame" id="resume-window">
         <header class="application-controlbar">
             <div class="application-title">
                 <img height="16" src="Images/shell32_35.ico" width="16">
@@ -128,7 +128,7 @@
         <div class="iframe">
             <iframe src="Images/DWilliams-Resume.pdf"></iframe>
         </div>
-    </div>
+    </div>-->
     <div class="application-frame" id="drivein-window">
         <header class="application-controlbar">
             <div class="application-title">
@@ -205,9 +205,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
-if ($(window).width() < 481) {
-         $('#resume-window .iframe iframe').replaceWith($("<img src='Images/DWilliams-Resume.pdf' />"));
-      }
+
 function touchHandler(event) {
     var self = this;
     var touches = event.changedTouches,
@@ -330,12 +328,14 @@ function initTouchHandler() {
           console.log('blue');
         } 
     });
-    $("#resume").bind('vclick', function (e){
+    /*$("#resume").bind('vclick', function (e){
       $("#resume-window").css('visibility', 'visible');
       $("#resume-window iframe").css('display', 'block');
-      
+      if ($(window).width() < 481) {
+         $('#resume-window .iframe iframe').replaceWith($("<img src='Images/DWilliams-Resume.pdf' />"));
+      }
       appendToDock(this);
-    });
+    });*/
     $("#email").bind('vclick', function (e){
       $("#email-window").css('visibility', 'visible');
       appendToDock(this);
@@ -361,7 +361,11 @@ function initTouchHandler() {
       $("#imdb-window iframe").css('display', 'block');
       appendToDock(this);
     });
-    
+    $("#about").bind('vclick', function (e){
+      $("#about-window").css('visibility', 'visible');
+      $("#about-window iframe").css('display', 'block');
+      appendToDock(this);
+    });
     $(".close").bind('vclick', function (e){
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
@@ -383,11 +387,7 @@ function initTouchHandler() {
       $(this).parent().parent().parent().find('.iframe').find('iframe').css('display', 'none');
       $(this).parent().parent().parent().css('visibility', 'hidden');
     });
-    $("#about").bind('vclick', function (e){
-      $("#about-window").css('visibility', 'visible');
-      $("#about-window iframe").css('display', 'block');
-      appendToDock(this);
-    });
+    
     var menuShown = false;
     $(".start-button").bind('vclick', function (e){
       if (menuShown === false) {
