@@ -278,7 +278,7 @@ height: 16px;
     width: 13%;
     float: right;
 }
-#email-window input[type="text"], input[type="email"] {
+#email-window input[type="text"], #email-window input[type="email"] {
     float: right;
     width: 70%;
     display: inline-block;
@@ -353,6 +353,8 @@ border-top: 1px solid #000;
     padding: 1px;
     float: right;
 }
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { font-size: 16px; }
 
 @media only screen and (max-width: 480px) {
     #sttropez-window, #journey-window, #resume-window, #about-window {
