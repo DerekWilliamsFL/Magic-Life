@@ -1,7 +1,12 @@
 body {
     background: rgb(0, 128, 128);
     font-family: 'Arial', sans-serif;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .bottom-dock {
@@ -38,7 +43,7 @@ body {
     box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
 }
 
-.start-button img {
+.start-button img, .docked img {
 
 width: 16px;
 height: 16px;
@@ -62,7 +67,7 @@ height: 16px;
 }
 
 #inset-notif{
-        float: right;
+    float: right;
     border-top: 1px solid rgb(128,128,128);
     border-left: 1px solid rgb(128,128,128);
     border-bottom: 1px solid rgb(255,255,255);
@@ -102,9 +107,11 @@ height: 16px;
     width: 60px;
     height: 55px;
     float: left;
+    cursor: pointer;
 }
 .desktop-icons a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .desktop-icons li {
@@ -114,14 +121,15 @@ height: 16px;
     width: 60px;
     float: left;
     z-index: 2;
+    cursor: pointer;
 }
 
 .link-icon {
     position: relative;
-    cursor: pointer;
     text-align: center;
     margin: 3px 3px 0;
     vertical-align: top;
+    cursor: pointer;
 }
 
 .link-text {
@@ -134,7 +142,7 @@ height: 16px;
 .application-frame {
     position: absolute;
     top: 10%;
-    right: 20%;
+    left: 0%;
     visibility: hidden;
     border-top: 2px solid white;
     border-left: 2px solid white;
@@ -146,13 +154,11 @@ height: 16px;
     width: 640px;
 } 
 
-/*.application-frame.ui-resizable {
-        position: absolute !important;
-}*/
 .application-controlbar {
-    background: gray;
+    background: #000080;
     height: 20px;
     border-bottom: 2px solid silver;
+    color: white;
 }
 
 .application-title img {
@@ -192,38 +198,37 @@ height: 16px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 95%;
+    height: 500px;
     width: 100%;
     overflow: auto;
     margin: 0;
 }
-
+#resume-window {
+    height: 520px;
+    width: 650px;
+}
 #journey-window{
     height: 421px;
     width: 640px;
 }
 
 #sttropez-window{
-    height: 800px;
+    height: 520px;
     width: 650px;
 }
 
-#sttropez-window iframe{
-    height: 97.5%
-}
-
 #imdb-window{
-    height: 700px;
+    height: 520px;
     width: 700px;
 }
 
-#imdb-window iframe{
-    height: 97%
+#about-window{
+    height: 520px;
+    width: 700px;
 }
 
 #drivein-window {
     overflow: hidden;
-    position: relative;
 }
 
 #drivein-window iframe{
@@ -234,67 +239,197 @@ height: 16px;
     left:-30px;
 }
 
+#email-window {
+    height: 360px;
+    width: 500px;
+    background: gray;
+}
+
+#email-window form{
+    border: 1px solid black;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+    box-shadow: 0 1px #fff inset;
+    padding: 5px;
+}
+
+
+#email-window input[type="text"], input[type="email"], textarea, #sendMessage:active {
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+    padding: 2px 8px;
+}
+
+#email-window p {
+    text-align: center;
+    font-size: 1.4em;
+}
+.emailform {
+    padding: 7px;
+}
+
+#sendprogress img {
+    margin-top: -60px;
+    margin-left: 180px;
+    width: 13%;
+    float: right;
+}
+#email-window input[type="text"], #email-window input[type="email"] {
+    float: right;
+    width: 70%;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#email-window form span {
+
+    margin-top: 2px;
+    float: left;
+}
+
+#email-window textarea {
+    width: 92%;
+    margin: 0 auto;
+    margin-top: 15px;
+    display: block;
+    height: 150px;
+    font-size: 16px;
+}
+
+#sendMessage {
+    margin: 5px;
+}
 .close {
-    background: url(Images/close.png);
+    background: url(Images/close.png) no-repeat;
     height: 15px;
     width: 15px;
 }
 
 .minimize {
-    background: url(Images/minimize.png);
+    background: url(Images/minimize.png) no-repeat;
     height: 15px;
     width: 15px;
 
 }
 
 .maximize {
-    background: url(Images/maximize.png);
+    background: url(Images/maximize.png) no-repeat;
     height: 15px;
     width: 15px;
 }
 
-.maximized {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+
+
+.docked {
+    width: 50px;
+    height: 22px;
+    padding: 2px;
+    padding-bottom: 5px;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+    box-shadow: inset 1px 1px #dfdfdf,1px 0 #000,0 1px #000,1px 1px #000;
+    cursor: pointer;
+    margin-top: 2px;
+    margin-right: 5px;
 }
 
-@media only screen and (max-width: 1024px) {
+.docked:focus{
+border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+}
 
-
+.docked span {
+    display: inline-block;
+    font-weight: bold;
+    padding: 1px;
+    float: right;
 }
 
 @media only screen and (max-width: 480px) {
-
-    body {
-        height: 100vh;
-        overflow: hidden;
+    #sttropez-window, #journey-window, #resume-window, #about-window {
+        height: 65%;
+        width: 95%;
     }
-    .application-frame, #imdb-window, #sttropez-window, #resume-window, #drivein-window {
-        width: 100vw;
-        height: 40vh;
+
+    #imdb-window {
+        width: 100%;
+    }
+    #drivein-window {
+        height: 300px;
+        width: 95%;
+    }
+
+    #email-window {
+        height: 370px;
+        width: 90%;
+    }
+    #resume-window{
+        height: 100%;
+    }
+    `
+    .application-frame{
+        position: absolute; 
+          right: 0; 
+          bottom: 0; 
+          left: 0;
+          top: 10%;
+    }
+
+    .close, .minimize {
+        padding-left: 3px;
+    }
+
+    .iframe {
+        position: absolute;
+        top:22px;
+        right: 0; 
+          bottom: 0; 
+          left: 0;
+        -webkit-overflow-scrolling: touch;
+          overflow-y: scroll;
+
+    }
+
+    .application-frame iframe {
+        top: 0;
+        bottom: 0;
         left: 0;
         right: 0;
-
-    }
-    #sttropez-window{
-        height: 60vh;
+        margin: 0;
+        display: none;    
     }
 
-    #drivein-window {
-        height: 50vh;
-        width: 100vw;
-        overflow: hidden;
-        position: relative;
+     #drivein-window iframe{
+        top: 0;
     }
 
-    #drivein-window iframe {
-        position: absolute;
+    #journey-window {
+        height: 400px;
+    }
+
+    #sttropez-window iframe {
         top: 22px;
-        left:-120px;
     }
 
+    #drivein-window .iframe {
+      overflow: hidden;
+    }
 
+     #resume-window .iframe img{
+        height: 100%;
+        width: 100%;
+        transform: scale(1.17, 1.17);
+        -ms-transform: scale(1.17, 1.17);
+        -webkit-transform: scale(1.17, 1.17);
+        position: absolute;
+    }
 }
